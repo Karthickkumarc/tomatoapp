@@ -1,25 +1,34 @@
-import logo from './logo.svg';
+
+import { Route, Routes } from 'react-router-dom';
 import './App.css';
+import Navbar from "./components/Navbar/Navbar";
+import Footer from './components/Footer/Footer';
+import { useState } from 'react';
+import LoginPopUp from './components/LoginPopUp/LoginPopUp';
+import Cart from './pages/Cart/Cart';
+import Home from './pages/Home/Home';
+import PlaceOrder from './pages/PlaceOrder/PlaceOrder';
 
 function App() {
+  const [login, setlogin] = useState(false);
   return (
+    
+
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        {login ?<LoginPopUp setlogin={setlogin} />:<></>}
+    <Navbar setlogin={setlogin} />
+    <Routes>
+      <Route path="/" element={<Home />}/>
+      <Route path="/cart" element={<Cart />}/>
+      <Route path="/order" element={<PlaceOrder/>} />
+      
+    </Routes>
+    <Footer />
     </div>
+
+
   );
+
 }
 
 export default App;

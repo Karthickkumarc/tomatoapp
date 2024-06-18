@@ -25,7 +25,7 @@ function Cart() {
           if (cartItems[item._id] > 0) {
             return (
               <div key={index} className='cart-items-item'>
-                <img src={item.image} alt='image' />
+                <img src={item.image} alt='card_image' />
                 <p>{item.name}</p>
                 <p>{item.price}</p>
                 <p>{cartItems[item._id]}</p>
